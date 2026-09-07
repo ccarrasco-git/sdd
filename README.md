@@ -1,13 +1,17 @@
 # sdd
 
-API REST CRUD de lista de tareas ToDo, desarrollada con la metodología **Spec-Driven Development**
-usando [spec-kit](https://spec.kit) (comandos `/speckit.*` en opencode).
+Lista de tareas ToDo con **API REST** y **frontend web**, desarrollada con la metodología
+**Spec-Driven Development** usando [spec-kit](https://spec.kit) (comandos `/speckit.*` en opencode).
 
 ## Stack
 
-- Node.js (≥ 22.5) + Express
-- SQLite mediante el módulo incorporado `node:sqlite` (sin dependencias nativas)
-- Tests: vitest + supertest
+- **Backend**: Node.js (≥ 22.5) + Express, SQLite vía `node:sqlite` (sin dependencias nativas)
+- **Frontend**: HTML/CSS/Vanilla JS (ES Modules), sin framework ni build
+- **Tests**: vitest + supertest
+
+## Requisitos
+
+- Node.js ≥ 22.5 (incluye `node:sqlite`)
 
 ## Requisitos
 
@@ -63,9 +67,30 @@ curl -s -X DELETE http://localhost:3000/api/tasks/1
 
 ## Especificaciones
 
-El ciclo SDD para esta feature queda documentado en [`specs/001-todo-crud/`](specs/001-todo-crud/):
-`spec.md`, `plan.md`, `research.md`, `data-model.md`, `contracts/api.md`, `quickstart.md` y
-`tasks.md`.
+El ciclo SDD de cada feature queda documentado bajo `specs/`:
+
+- [`specs/001-todo-crud/`](specs/001-todo-crud/) — API backend: `spec.md`, `plan.md`,
+  `research.md`, `data-model.md`, `contracts/api.md`, `quickstart.md`, `tasks.md`.
+- [`specs/002-frontend-todo/`](specs/002-frontend-todo/) — Frontend web: `spec.md`, `plan.md`,
+  `research.md`, `contracts/ui-api.md`, `quickstart.md`, `tasks.md`.
+
+## Frontend web
+
+El frontend (en `frontend/`) consume la API. Para usarlo:
+
+```sh
+npm start            # terminal 1: API en http://localhost:3000
+npx serve frontend   # terminal 2: frontend en http://localhost:3001
+```
+
+Abrir `http://localhost:3001`. Permite ver, crear, editar (título/descripción), alternar estado y
+eliminar tareas. La lógica se prueba con:
+
+```sh
+npx vitest run frontend/tests
+```
+
+Contrato UI↔API en [`specs/002-frontend-todo/contracts/ui-api.md`](specs/002-frontend-todo/contracts/ui-api.md).
 
 ## Constitución
 

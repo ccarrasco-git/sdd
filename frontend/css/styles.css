@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f6f8;
+  color: #1f2933;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 16px;
+}
+
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.task-form input {
+  flex: 1 1 200px;
+  padding: 10px 12px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.task-form button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background: #1d4ed8;
+}
+
+.message {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.message--error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.message--success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e4e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.task--completed .task__title {
+  text-decoration: line-through;
+  color: #7b8794;
+}
+
+.task__toggle {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task__body {
+  flex: 1;
+}
+
+.task__title {
+  font-weight: 600;
+}
+
+.task__desc {
+  margin: 4px 0 0;
+  color: #52606d;
+  font-size: 0.9rem;
+}
+
+.task__edit,
+.task__delete {
+  padding: 6px 10px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.task__delete {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.task__delete:hover {
+  background: #fee2e2;
+}
+
+.empty,
+.error {
+  padding: 16px;
+  text-align: center;
+  color: #52606d;
+  background: #fff;
+  border: 1px dashed #cbd2d9;
+  border-radius: 8px;
+}
+
+.error {
+  color: #b91c1c;
+  border-color: #fecaca;
+  border-style: solid;
+}
+
+@media (min-width: 480px) {
+  .task-form input[type='text'] {
+    flex: 1 1 160px;
+  }
+}
