@@ -1,0 +1,22 @@
+{
+  "name": "sdd-todo-crud",
+  "version": "1.0.0",
+  "description": "API REST CRUD de lista de tareas ToDo (Spec-Driven Development)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "vitest run"
+  },
+  "keywords": ["todo", "crud", "rest", "api"],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.1"
+  }
+}

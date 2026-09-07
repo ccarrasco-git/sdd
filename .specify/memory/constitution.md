@@ -1,50 +1,71 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  Sync Impact Report
+  - Version change: n/a (initial) → 1.0.0
+  - Modified principles: n/a (first ratification)
+  - Added sections: Core Principles (5), Technology Constraints, Development Workflow & Quality Gates, Governance
+  - Removed sections: n/a
+  - Follow-up TODOs: none (stack decision deferred to plan phase by design)
+-->
+
+# sdd-spec-kit Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-First
+Every feature begins as a written specification under `specs/` before any code is written. The
+specification captures WHAT users need and WHY, expressed as prioritized, independently testable
+user stories. No implementation detail (languages, frameworks, APIs) belongs in a specification.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Test-First (NON-NEGOTIABLE)
+TDD is mandatory. Tests are written and user-approved, then run and shown to fail, and only then is
+the implementation built. The Red-Green-Refactor cycle is strictly enforced. A feature is not
+"done" until its tests pass and are part of the suite.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. REST API Interface
+Every feature that exposes functionality does so through a RESTful HTTP interface. Contracts follow
+the resource model, use standard HTTP verbs and status codes, and speak JSON. Interface contracts
+are documented in the feature's `contracts/` directory before implementation.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Integration Testing
+Integration testing is required for: new interface contract acceptance, contract changes,
+inter-service communication, and shared schemas. Unit tests alone are not sufficient for the
+feature's public interface.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Simplicity (YAGNI)
+Start simple. Build only what the specification requires; do not add speculative generality,
+abstractions, or unused endpoints. Any added complexity must be justified against a real
+requirement from the specification.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The project is developed on Windows with PowerShell scripts available in `.specify/scripts/`.
+The concrete technology stack (runtime, framework, persistence) is NOT decided in this
+constitution by design; it is chosen during the planning phase (`/speckit.plan`) for each feature
+and recorded in that feature's `plan.md` and `research.md`. Persistence MUST be required for the
+ToDo data model (tasks must survive restarts). Any stack choice must support automated tests.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow & Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The Spec-Driven Development cycle is followed for every feature: specify → clarify → plan → tasks →
+implement. The feature does not advance to the next phase until the current one passes its gates:
+
+- **Spec gate**: specification passes `checklists/requirements.md` (no `[NEEDS CLARIFICATION]`
+  markers, testable requirements, measurable success criteria).
+- **Plan gate**: `plan.md` shows no constitution violations and `research.md` resolves all
+  unknowns.
+- **Tasks gate**: `tasks.md` covers every user story with executable, dependency-ordered tasks in
+  the required checklist format.
+- **Implement gate**: all tasks marked `[x]`, tests pass, and behavior matches the specification.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices. Amendments require a documented
+change, approval, and a migration plan. Versioning follows semantic versioning:
+MAJOR for principle removals/redefinitions, MINOR for new principles, PATCH for clarifications.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Compliance expectations:
+- All pull requests and reviews MUST verify compliance with the principles above.
+- Complexity must be justified against a specification requirement (Principle V).
+- The current specification and its plan/tasks take precedence for implementation details.
+
+**Version**: 1.0.0 | **Ratified**: 2026-09-06 | **Last Amended**: 2026-09-06
