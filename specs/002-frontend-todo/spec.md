@@ -20,8 +20,8 @@
 
 ### User Story 1 - Ver el listado de tareas (Priority: P1)
 
-Un usuario puede ver todas sus tareas en una sola pantalla, con su título, descripción y estado
-("pendiente"/"completada"). La pantalla se actualiza con los datos de la API.
+Como **usuario** necesito **ver todas mis tareas con su título, descripción y estado al abrir la
+aplicación** para **saber qué tengo pendiente de forma inmediata**.
 
 **Why this priority**: Sin poder ver las tareas no hay utilidad; es la base del producto junto con la
 creación.
@@ -39,8 +39,8 @@ tareas existentes en la API se muestran con su estado.
 
 ### User Story 2 - Crear una tarea (Priority: P1)
 
-Un usuario puede crear una tarea ingresando un título (obligatorio) y una descripción (opcional).
-Al guardarse, la nueva tarea aparece en el listado.
+Como **usuario** necesito **crear una tarea ingresando un título (obligatorio) y una descripción
+opcional** para **registrar y no olvidar lo que debo hacer**.
 
 **Why this priority**: Crear es la segunda mitad del MVP; junto con ver forma un producto usable.
 
@@ -57,8 +57,8 @@ comprobando que aparece en el listado con estado "pendiente".
 
 ### User Story 3 - Actualizar una tarea (estado y texto) (Priority: P2)
 
-Un usuario puede marcar una tarea como "completada" (o volverla a "pendiente") desde el listado, y
-también editar su título y descripción, sin necesidad de recargar la página.
+Como **usuario** necesito **marcar una tarea como completada (o revertirla a pendiente) y editar su
+título o descripción** para **reflejar su avance real y corregir su información**.
 
 **Why this priority**: Gestionar el avance y corregir los datos de las tareas es la mejora más
 valiosa sobre el MVP.
@@ -77,7 +77,8 @@ editando su texto, y comprobando que el listado refleja los cambios.
 
 ### User Story 4 - Eliminar una tarea (Priority: P3)
 
-Un usuario puede eliminar una tarea del listado, retirándola definitivamente.
+Como **usuario** necesito **eliminar una tarea que ya no necesito** para **mantener mi lista ordenada
+y libre de elementos obsoletos**.
 
 **Why this priority**: Es una operación de mantenimiento importante pero de menor frecuencia.
 

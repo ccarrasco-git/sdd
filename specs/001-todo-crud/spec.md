@@ -20,8 +20,8 @@
 
 ### User Story 1 - Crear una tarea (Priority: P1)
 
-Un usuario puede crear una nueva tarea aportando un título y, opcionalmente, una descripción. La
-tarea se guarda con estado "pendiente" y queda disponible de inmediato en la lista.
+Como **usuario** necesito **crear una tarea con título obligatorio y descripción opcional** para
+**registrar una nueva tarea pendiente**.
 
 **Why this priority**: Sin crear tareas no existe una lista; es la base de valor del producto.
 
@@ -38,8 +38,8 @@ sistema la registra y la devuelve con un identificador propio y estado "pendient
 
 ### User Story 2 - Listar tareas (Priority: P1)
 
-Un usuario puede consultar todas sus tareas, viendo el título, la descripción, el estado y la fecha
-de creación de cada una.
+Como **usuario** necesito **consultar todas mis tareas con su estado y fechas** para **ver el estado
+de mi lista**.
 
 **Why this priority**: Ver las tareas es el segundo pilar del producto; junto con crear conforma un
 MVP utilizable.
@@ -56,8 +56,8 @@ listado las muestra todas con su estado.
 
 ### User Story 3 - Actualizar una tarea (Priority: P2)
 
-Un usuario puede modificar una tarea existente: editar su título o descripción y/o cambiar su estado
-entre "pendiente" y "completada".
+Como **usuario** necesito **actualizar parcialmente el título, la descripción o el estado de una
+tarea** para **mantener su información y avance al día**.
 
 **Why this priority**: Gestionar el avance de las tareas es la mejora más solicitada sobre el MVP.
 
@@ -75,7 +75,8 @@ listado.
 
 ### User Story 4 - Eliminar una tarea (Priority: P3)
 
-Un usuario puede eliminar una tarea existente, retirándola definitivamente de la lista.
+Como **usuario** necesito **eliminar una tarea existente** para **quitarla definitivamente de la
+lista**.
 
 **Why this priority**: Es una operación de mantenimiento importante pero de menor frecuencia de uso.
 
